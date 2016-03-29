@@ -52,6 +52,17 @@ namespace StringCalculatorUnitTestProject
                 //assert
                 Assert.AreEqual(10, ans, "Input two arg");
             }
+
+            [TestMethod]
+            public void ArgsNewLineDelimeter_OutputSumOfArgs()
+            {
+                //arrange
+                string input = "1\n2,3,4";
+                //act
+                int ans = StringCalculatorConsoleApplication.CalculatorLogic.Add(input);
+                //assert
+                Assert.AreEqual(10, ans, "New line delimeter");
+            }
         }
     }
 }
