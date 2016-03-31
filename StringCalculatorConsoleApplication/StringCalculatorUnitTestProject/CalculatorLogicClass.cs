@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StringCalculatorConsoleApplication;
 
 namespace StringCalculatorUnitTestProject
 {
@@ -14,8 +15,9 @@ namespace StringCalculatorUnitTestProject
             {
                 //arrange
                 string input = string.Empty;
+                var logic = new CalculatorLogic();
                 //act
-                int ans = StringCalculatorConsoleApplication.CalculatorLogic.Add(input);
+                int ans = logic.Add(input);
                 //assert
                 Assert.AreEqual(0,ans,"Input is empty string");
             }
@@ -25,8 +27,9 @@ namespace StringCalculatorUnitTestProject
             {
                 //arrange
                 string input = "2";
+                var logic = new CalculatorLogic();
                 //act
-                int ans = StringCalculatorConsoleApplication.CalculatorLogic.Add(input);
+                int ans = logic.Add(input);
                 //assert
                 Assert.AreEqual(2, ans, "Input one arg");
             }
@@ -36,8 +39,9 @@ namespace StringCalculatorUnitTestProject
             {
                 //arrange
                 string input = "1,2";
+                var logic = new CalculatorLogic();
                 //act
-                int ans = StringCalculatorConsoleApplication.CalculatorLogic.Add(input);
+                int ans = logic.Add(input);
                 //assert
                 Assert.AreEqual(3, ans, "Input two arg");
             }
@@ -47,8 +51,9 @@ namespace StringCalculatorUnitTestProject
             {
                 //arrange
                 string input = "1,2,3,4";
+                var logic = new CalculatorLogic();
                 //act
-                int ans = StringCalculatorConsoleApplication.CalculatorLogic.Add(input);
+                int ans = logic.Add(input);
                 //assert
                 Assert.AreEqual(10, ans, "Input two arg");
             }
@@ -58,8 +63,9 @@ namespace StringCalculatorUnitTestProject
             {
                 //arrange
                 string input = "1\n2,3,4";
+                var logic = new CalculatorLogic();
                 //act
-                int ans = StringCalculatorConsoleApplication.CalculatorLogic.Add(input);
+                int ans = logic.Add(input);
                 //assert
                 Assert.AreEqual(10, ans, "New line delimeter");
             }

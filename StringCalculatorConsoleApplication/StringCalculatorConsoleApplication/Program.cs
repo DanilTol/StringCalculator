@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StringCalculatorConsoleApplication
 {
@@ -10,6 +6,11 @@ namespace StringCalculatorConsoleApplication
     {
         static void Main(string[] args)
         {
+            var logic =  new CalculatorLogic();
+            Console.WriteLine("Write data for sum\n");
+            var input = Console.ReadLine();
+            Console.WriteLine(logic.Add(input));
+            Console.ReadLine();
         }
     }
 }
