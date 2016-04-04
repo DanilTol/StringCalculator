@@ -11,7 +11,7 @@ namespace StringCalculatorUnitTestProject
         public class AddMethod
         {
             [TestMethod]
-            public void EmptyInput_OutputZero()
+            public void Add_EmptyInput_OutputZero()
             {
                 //arrange
                 string input = string.Empty;
@@ -23,7 +23,7 @@ namespace StringCalculatorUnitTestProject
             }
 
             [TestMethod]
-            public void OneArgInput_OutputInputArg()
+            public void Add_OneArgInput_OutputInputArg()
             {
                 //arrange
                 string input = "2";
@@ -35,7 +35,7 @@ namespace StringCalculatorUnitTestProject
             }
 
             [TestMethod]
-            public void TwoArgsInput_OutputSumOfArgs()
+            public void Add_TwoArgsInput_OutputSumOfArgs()
             {
                 //arrange
                 string input = "1,2";
@@ -47,7 +47,7 @@ namespace StringCalculatorUnitTestProject
             }
 
             [TestMethod]
-            public void FourArgsInput_OutputSumOfArgs()
+            public void Add_FourArgsInput_OutputSumOfArgs()
             {
                 //arrange
                 string input = "1,2,3,4";
@@ -59,7 +59,7 @@ namespace StringCalculatorUnitTestProject
             }
 
             [TestMethod]
-            public void ArgsNewLineDelimeter_OutputSumOfArgs()
+            public void Add_ArgsNewLineDelimeter_OutputSumOfArgs()
             {
                 //arrange
                 string input = "1\n2,3,4";
