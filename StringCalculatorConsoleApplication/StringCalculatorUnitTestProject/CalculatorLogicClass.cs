@@ -81,6 +81,28 @@ namespace StringCalculatorUnitTestProject
                 //assert
                 Assert.AreEqual(3, ans, "; delimiter");
             }
+
+            [TestMethod]
+            [ExpectedException(typeof(NegativeNumbersExeption),"-1")]
+            public void Add_OneNegativeArg_Catch_Exception()
+            {
+                //arrange
+                string input = "//;\\n-1;2";
+                var logic = new CalculatorLogic();
+                //act
+                int ans = logic.Add(input);
+            }
+
+            [TestMethod]
+            [ExpectedException(typeof(NegativeNumbersExeption), "-1")]
+            public void Add_TwoNegativeArg_Catch_Exception()
+            {
+                //arrange
+                string input = "//;\\n-1;-2";
+                var logic = new CalculatorLogic();
+                //act
+                int ans = logic.Add(input);
+            }
         }
     }
 }
