@@ -59,7 +59,7 @@ namespace StringCalculatorUnitTestProject
             }
 
             [TestMethod]
-            public void Add_ArgsNewLineDelimeter_OutputSumOfArgs()
+            public void Add_ArgsNewLineDelimiter_OutputSumOfArgs()
             {
                 //arrange
                 string input = "1\n2,3,4";
@@ -67,7 +67,19 @@ namespace StringCalculatorUnitTestProject
                 //act
                 int ans = logic.Add(input);
                 //assert
-                Assert.AreEqual(10, ans, "New line delimeter");
+                Assert.AreEqual(10, ans, "New line delimiter");
+            }
+
+            [TestMethod]
+            public void Add_DifferentDelimiter_OutputSumOfArgs()
+            {
+                //arrange
+                string input = "//;\\n1;2";
+                var logic = new CalculatorLogic();
+                //act
+                int ans = logic.Add(input);
+                //assert
+                Assert.AreEqual(3, ans, "; delimiter");
             }
         }
     }
