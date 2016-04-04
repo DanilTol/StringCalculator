@@ -103,6 +103,19 @@ namespace StringCalculatorUnitTestProject
                 //act
                 int ans = logic.Add(input);
             }
+
+            [TestMethod]
+            public void Add_NumberBigger1000_OutputOneArg()
+            {
+                //arrange
+                string input = "1000,2";
+                var logic = new CalculatorLogic();
+                //act
+                int ans = logic.Add(input);
+                //assert
+                Assert.AreEqual(2, ans, "Bigger than 1000");
+            }
+
         }
     }
 }

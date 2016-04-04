@@ -37,7 +37,7 @@ namespace StringCalculatorConsoleApplication
                 throw new NegativeNumbersExeption(negativeString);
             }
             
-            return numbers.Sum();
+            return numbers.Select(value => value > 999 ? 0 : value).Sum();
         }
     }
 
