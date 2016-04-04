@@ -116,6 +116,18 @@ namespace StringCalculatorUnitTestProject
                 Assert.AreEqual(2, ans, "Bigger than 1000");
             }
 
+            [TestMethod]
+            public void Add_AnyLengthDelimiter_OutputSum()
+            {
+                //arrange
+                string input = "//[***]\\n1***2***3";
+                var logic = new CalculatorLogic();
+                //act
+                int ans = logic.Add(input);
+                //assert
+                Assert.AreEqual(6, ans, "AnyLengthDelimiter");
+            }
+
         }
     }
 }

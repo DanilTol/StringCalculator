@@ -7,10 +7,10 @@ namespace StringCalculatorConsoleApplication
 {
     public class CalculatorLogic
     {
-        List<char> delimetersList = new List<char>
+        List<string> delimetersList = new List<string>
         {
-            ',',
-            '\n'
+            ",",
+            "\n"
         }; 
 
         public int Add(string numbersString)
@@ -22,11 +22,14 @@ namespace StringCalculatorConsoleApplication
             
             if (!string.IsNullOrEmpty(newDelimiter))
             {
-                delimetersList.Add(newDelimiter[0]);
+                if (newDelimiter.IndexOf("[") > -1 && newDelimiter.IndexOf("]") > -1)
+                     newDelimiter = newDelimiter.Substring(1, newDelimiter.Length - 2);
+                
+                delimetersList.Add(newDelimiter);
                 var indexCut = numbersString.IndexOf("\\n");
                 numbersString = numbersString.Remove(0, indexCut + 2);
             }
-            var numbers = numbersString.Split(delimetersList.ToArray()).Select(strNum => Convert.ToInt32(strNum));
+            var numbers = numbersString.Split(delimetersList.ToArray(), StringSplitOptions.RemoveEmptyEntries).Select(strNum => Convert.ToInt32(strNum));
                 
             var negativeNumbers = numbers.Where(i => i < 0).ToArray();
 
