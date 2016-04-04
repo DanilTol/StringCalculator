@@ -23,9 +23,20 @@ namespace StringCalculatorConsoleApplication
             if (!string.IsNullOrEmpty(newDelimiter))
             {
                 if (newDelimiter.IndexOf("[") > -1 && newDelimiter.IndexOf("]") > -1)
-                     newDelimiter = newDelimiter.Substring(1, newDelimiter.Length - 2);
-                
-                delimetersList.Add(newDelimiter);
+                {
+                    var matches = Regex.Matches(newDelimiter, @"\[(.*)[^\]\[]\]");
+                    foreach (Match match in matches)
+                    {
+                        foreach (Capture capture in match.Captures)
+                        {
+                            delimetersList.Add(capture.Value);
+                        }
+                    }
+                }
+                else
+                {
+                    delimetersList.Add(newDelimiter);
+                }
                 var indexCut = numbersString.IndexOf("\\n");
                 numbersString = numbersString.Remove(0, indexCut + 2);
             }
