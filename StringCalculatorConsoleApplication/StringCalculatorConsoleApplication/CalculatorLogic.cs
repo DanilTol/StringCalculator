@@ -24,14 +24,10 @@ namespace StringCalculatorConsoleApplication
             {
                 if (newDelimiter.IndexOf("[") > -1 && newDelimiter.IndexOf("]") > -1)
                 {
-                    var matches = Regex.Matches(newDelimiter, @"\[(.*)[^\]\[]\]");
-                    foreach (Match match in matches)
-                    {
-                        foreach (Capture capture in match.Captures)
-                        {
-                            delimetersList.Add(capture.Value);
-                        }
-                    }
+                    var smthNew = newDelimiter.Substring(1).Remove(newDelimiter.Substring(1).Length - 1);
+
+                    var newDelimitersArray = smthNew.Replace("][", " ").Split(' ');
+                    delimetersList.AddRange(newDelimitersArray);
                 }
                 else
                 {

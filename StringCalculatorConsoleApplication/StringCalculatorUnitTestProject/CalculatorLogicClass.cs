@@ -132,7 +132,7 @@ namespace StringCalculatorUnitTestProject
             public void Add_MultileDelimiter_OutputSum()
             {
                 //arrange
-                string input = "//[*][%]\n1*2%3";
+                string input = "//[*][%]\\n1*2%3";
                 var logic = new CalculatorLogic();
                 //act
                 int ans = logic.Add(input);
@@ -140,6 +140,17 @@ namespace StringCalculatorUnitTestProject
                 Assert.AreEqual(6, ans, "MultipleDelimiter");
             }
 
+            [TestMethod]
+            public void Add_MultileDelimiterAnyLength_OutputSum()
+            {
+                //arrange
+                string input = "//[***][%%%]\\n1***2%%%3";
+                var logic = new CalculatorLogic();
+                //act
+                int ans = logic.Add(input);
+                //assert
+                Assert.AreEqual(6, ans, "MultipleDelimiter AnyLength");
+            }
         }
     }
 }
